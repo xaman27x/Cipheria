@@ -10,7 +10,7 @@ const genAI = new GoogleGenerativeAI('AIzaSyBqbXJb3vr2AAslojxyZF15JCYuUDOoOAs');
 
 async function runGenerativeAI(prompt) {
     try {
-        // Get the Generative Model (e.g., "gemini-pro")
+        // model is taken as gemini-pro
         const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
         const result = await model.generateContent(prompt);
