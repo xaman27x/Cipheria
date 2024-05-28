@@ -22,6 +22,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool isLoading = false;
+  bool isSubmitted = false;
   String input = '';
   String userId = '';
   String? fetchedData;
@@ -37,6 +38,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     userId = HomePage().currUser!.uid;
     super.initState();
+    isSubmitted = false;
     _getUserName();
     _getUserLastName();
   }
@@ -70,6 +72,7 @@ class _HomePageState extends State<HomePage> {
       icon: const Icon(Icons.search_rounded),
       onPressed: () {
         isLoading = true;
+        isSubmitted = true;
         final inputText = controller.text;
         if (inputText.isNotEmpty) {
           setState(() {
@@ -80,6 +83,20 @@ class _HomePageState extends State<HomePage> {
         controller.clear();
       },
     );
+  }
+
+  Widget _showData(isSubmitted) {
+    if (isSubmitted) {
+      return Container(
+        margin: const EdgeInsets.all(50.0),
+        color: Colors.black,
+        width: 600.0,
+        height: 350.0,
+        child: _displayRetrievedInformation(),
+      );
+    } else {
+      return const Text('');
+    }
   }
 
   Future<void> _fetchData(String inputText) async {
@@ -132,8 +149,10 @@ class _HomePageState extends State<HomePage> {
   Widget _displayRetrievedInformation() {
     if (isLoading) {
       return const Padding(
-          padding: EdgeInsets.symmetric(vertical: 100, horizontal: 240),
-          child: CircularProgressIndicator());
+        padding: EdgeInsets.symmetric(vertical: 120, horizontal: 240),
+        child: CircularProgressIndicator(
+            color: Color.fromARGB(255, 161, 153, 153)),
+      );
     } else if (fetchedData == null) {
       return const Center(
         heightFactor: double.infinity,
@@ -147,12 +166,15 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     } else {
-      return Text(
-        fetchedData!,
-        style: const TextStyle(
-          color: Color.fromARGB(255, 176, 174, 174),
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
+      return SingleChildScrollView(
+        controller: ScrollController(),
+        child: Text(
+          fetchedData!,
+          style: const TextStyle(
+            color: Color.fromARGB(255, 176, 174, 174),
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       );
     }
@@ -200,7 +222,7 @@ class _HomePageState extends State<HomePage> {
             onPressed: signOut,
             child: Text(
               "SIGN OUT",
-              selectionColor: Colors.white,
+              selectionColor: Color.fromARGB(255, 59, 54, 54),
             ),
           ),
           const Padding(
@@ -211,14 +233,14 @@ class _HomePageState extends State<HomePage> {
             },
             child: const Text(
               "GITHUB",
-              selectionColor: Colors.white,
+              selectionColor: Color.fromARGB(255, 59, 54, 54),
             ),
           ),
         ],
       ),
       drawer: Drawer(
         surfaceTintColor: Colors.white,
-        backgroundColor: const Color.fromARGB(255, 4, 4, 4),
+        backgroundColor: const Color.fromARGB(255, 195, 192, 192),
         shadowColor: Colors.white,
         child: Scaffold(
           appBar: AppBar(
@@ -264,13 +286,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 Center(
-                  child: Container(
-                    margin: const EdgeInsets.all(50.0),
-                    color: Colors.black,
-                    width: 580.0,
-                    height: 300.0,
-                    child: _displayRetrievedInformation(),
-                  ),
+                  child: _showData(isSubmitted),
                 ),
               ],
             ),

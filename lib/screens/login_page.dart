@@ -237,7 +237,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
           color: Color.fromARGB(255, 17, 17, 17),
           image: DecorationImage(
             image: AssetImage(
-              'assets/images/background2.avif',
+              'assets/images/background2.jpg',
             ),
             fit: BoxFit.fill,
           ),
