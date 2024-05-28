@@ -1,0 +1,283 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:google_generative_ai/google_generative_ai.dart';
+import '../models/auth.dart';
+import '../models/chats.dart';
+import '../widgets/messages.dart';
+
+Future<void> signOut() async {
+  await Auth().signOut();
+}
+
+class HomePage extends StatefulWidget {
+  final FirebaseAuth _instance = FirebaseAuth.instance;
+  User? get currUser => _instance.currentUser;
+  HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool isLoading = false;
+  String input = '';
+  String userId = '';
+  String? fetchedData;
+  String? userName;
+  String? userlastname;
+  final TextEditingController _controllerInput = TextEditingController();
+  final model = GenerativeModel(
+    model: 'gemini-pro',
+    apiKey: 'AIzaSyBqbXJb3vr2AAslojxyZF15JCYuUDOoOAs',
+  );
+
+  @override
+  void initState() {
+    userId = HomePage().currUser!.uid;
+    super.initState();
+    _getUserName();
+    _getUserLastName();
+  }
+
+  Future<void> _getUserName() async {
+    try {
+      final emailID = Auth().currentUser?.email ?? '';
+      final name = await Auth().getName(emailID);
+      setState(() {
+        userName = name;
+      });
+    } catch (e) {
+      ('Error retrieving user name: $e');
+    }
+  }
+
+  Future<void> _getUserLastName() async {
+    try {
+      final emailID = Auth().currentUser?.email ?? '';
+      final lastname = await Auth().getLastName(emailID);
+      setState(() {
+        userlastname = lastname;
+      });
+    } catch (e) {
+      ('Error retrieving user name: $e');
+    }
+  }
+
+  Widget _searchButton(TextEditingController controller) {
+    return IconButton(
+      icon: const Icon(Icons.search_rounded),
+      onPressed: () {
+        isLoading = true;
+        final inputText = controller.text;
+        if (inputText.isNotEmpty) {
+          setState(() {
+            input = inputText;
+            _fetchData(input);
+          });
+        }
+        controller.clear();
+      },
+    );
+  }
+
+  Future<void> _fetchData(String inputText) async {
+    try {
+      final generatedText = await retrieveMessage(inputText);
+      Chats().uploadChats(userId, inputText);
+      setState(() {
+        isLoading = false;
+        fetchedData = generatedText;
+      });
+    } catch (e) {
+      setState(() {
+        isLoading = false;
+        fetchedData = 'Error: ${e.toString()}';
+      });
+    }
+  }
+
+  Future<String> retrieveMessage(String inputText) async {
+    final content = [Content.text(inputText)];
+    final response = await model.generateContent(content);
+    if (response.text == null) {
+      throw Exception('Generated text is null');
+    }
+    return response.text!;
+  }
+
+  Widget inputField(String title, TextEditingController controller) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          labelText: title,
+          hintText: 'Enter your $title',
+          filled: true,
+          fillColor: Colors.white.withOpacity(0.1),
+          labelStyle: const TextStyle(color: Colors.white),
+          hintStyle: const TextStyle(color: Colors.white70),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12),
+          ),
+          suffixIcon: _searchButton(controller),
+        ),
+        style: const TextStyle(color: Colors.white),
+      ),
+    );
+  }
+
+  Widget _displayRetrievedInformation() {
+    if (isLoading) {
+      return const Padding(
+          padding: EdgeInsets.symmetric(vertical: 100, horizontal: 240),
+          child: CircularProgressIndicator());
+    } else if (fetchedData == null) {
+      return const Center(
+        heightFactor: double.infinity,
+        child: Text(
+          'Please enter a query and press search.',
+          style: TextStyle(
+            color: Color.fromARGB(255, 176, 174, 174),
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      );
+    } else {
+      return Text(
+        fetchedData!,
+        style: const TextStyle(
+          color: Color.fromARGB(255, 176, 174, 174),
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+      );
+    }
+  }
+
+  Future<void> launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  Widget _userInfo() {
+    return Container(
+      color: const Color.fromARGB(255, 9, 9, 9),
+      child: Text(
+        'User: $userName $userlastname',
+        style: GoogleFonts.oxanium(
+          color: const Color.fromARGB(255, 83, 82, 82),
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: const Color.fromARGB(255, 5, 6, 6),
+        title: Text(
+          "CIPHERIA",
+          style: GoogleFonts.orbitron(
+            color: const Color.fromARGB(255, 134, 124, 124),
+            fontWeight: FontWeight.bold,
+            fontSize: 30,
+          ),
+        ),
+        actions: [
+          const ElevatedButton(
+            onPressed: signOut,
+            child: Text(
+              "SIGN OUT",
+              selectionColor: Colors.white,
+            ),
+          ),
+          const Padding(
+              padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 10)),
+          ElevatedButton(
+            onPressed: () {
+              launchURL("https://www.github.com/xaman27x");
+            },
+            child: const Text(
+              "GITHUB",
+              selectionColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
+      drawer: Drawer(
+        surfaceTintColor: Colors.white,
+        backgroundColor: const Color.fromARGB(255, 4, 4, 4),
+        shadowColor: Colors.white,
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              'CIPHERIA',
+              style: GoogleFonts.orbitron(
+                fontSize: 34,
+                fontWeight: FontWeight.bold,
+                color: const Color.fromARGB(255, 134, 124, 124),
+              ),
+            ),
+            centerTitle: true,
+            backgroundColor: const Color.fromARGB(255, 9, 9, 9),
+          ),
+          body: Container(
+            color: const Color.fromARGB(255, 9, 9, 9),
+            child: Messages(),
+          ),
+          bottomSheet: _userInfo(),
+        ),
+      ),
+      body: Stack(
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/background3.png'),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 2),
+            child: Column(
+              children: [
+                if (userName != null)
+                  Text(
+                    "Hello $userName,\nHow can I help you today?",
+                    style: GoogleFonts.orbitron(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: const Color.fromARGB(255, 154, 153, 159),
+                    ),
+                  ),
+                Center(
+                  child: Container(
+                    margin: const EdgeInsets.all(50.0),
+                    color: Colors.black,
+                    width: 580.0,
+                    height: 300.0,
+                    child: _displayRetrievedInformation(),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: inputField("Ask Me Anything!", _controllerInput),
+    );
+  }
+}
