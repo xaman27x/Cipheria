@@ -1,10 +1,11 @@
-# cipheria_v2
+# Cipheria
 
-A new Flutter project.
+A Full Stack AI ChatBot built via Flutter and Firebase, harnessing the power of Google's All New Gemini (LLM Model).
 
-## Getting Started
+## Key Features:
 
-This project is a starting point for a Flutter application.
+> A Secure Authentication Layer with RealTime Updates.
+> Simple and Safe Password Reset Options via Email ID
 
 A few resources to get you started if this is your first Flutter project:
 
