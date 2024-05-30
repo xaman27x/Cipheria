@@ -57,8 +57,7 @@ Cipheria is developed by **Aman Morghade**
 
 - LinkedIn: [Aman Morghade](https://www.linkedin.com/in/amanmorghade)
 - GitHub: [Aman Morghade](https://github.com/xaman27x)
-
+- 
 - Feel free to reach out for collaboration, feedback, or just to say hi!
 
-- 
 
