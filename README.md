@@ -4,9 +4,9 @@ A Full Stack AI ChatBot built via Flutter and Firebase, harnessing the power of 
 
 ## Key Features:
 
-- **Authentication Service** A Secure Authentication Layer with a hassle free user creation interface.
-- **Forgot Password** Simple and Safe Password Reset Options, facilitated by EmailID.
-- **Seemless Interface** Smart and Easy to use User Interface for Chat nputs.
+- **Authentication Service** A Secure Authentication Layer with hassle free new user creation interface.
+- **Forgot Password** Simple and Safe Password Reset Options, facilitated by personal EmailID's.
+- **Seemless Interface** Smart and Easy to use User Interface for Chat inputs.
 - **Chat Synchronisation** Chat History has a Backup and is synced with Realtime updates.
 - **Beautiful UI** Enjoy the stunning and seemless interface for an enhanced browsing experience.
 - **Responsive Elements:** Every element in the browsing interface is responsive and efficiently handled.
@@ -20,7 +20,7 @@ A Full Stack AI ChatBot built via Flutter and Firebase, harnessing the power of 
 - **Backend:** Firebase
 - **Database:** No-SQL Cloud Firestore
 - **Functions:** Cloud Functions {..}
-- **API Integration:** Gemini LLm
+- **API Integration:** Gemini LLM
 
 - ## Deployed On:
 - **Firebase Hosting:** (https://cipheria-3a247.web.app)
