@@ -25,7 +25,7 @@ A Full Stack AI ChatBot built via Flutter and Firebase, harnessing the power of 
 ## Deployed On:
 - **Firebase Hosting:** (https://cipheria-3a247.web.app)
 
-### Installation
+## Installation:
 1. Clone the Repository:
 ```
 git clone https://github.com/xaman27x/Cipheria
