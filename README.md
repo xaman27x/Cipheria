@@ -18,7 +18,7 @@ Are you trying to search for any information or just trying to solve a tedious p
 - **Frontend:** Flutter
 - **Backend:** Firebase
 - **Database:** No-SQL Cloud Firestore
-- **Functions:** Cloud Functions 〔..〕
+- **Functions:** Cloud Functions〔..〕
 - **API Integration:** Gemini LLM
 
 ## Deployed On:
