@@ -100,8 +100,8 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
           .userChats
           .doc(currUserID)
           .set(chatuserID)
-          .then((value) => print("User Added"))
-          .catchError((error) => print('$error'));
+          .then((value) => ("User Added"))
+          .catchError((error) => ('$error'));
     } on FirebaseAuthException catch (e) {
       setState(() {
         errorMessage = e.message;
