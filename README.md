@@ -34,7 +34,7 @@ https://github.com/xaman27x/Cipheria
 ```
 flutter run
 ```
-- ## Contributing:
+## Contributing:
 
 Contributions are what make the open source platforms such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -59,6 +59,6 @@ Cipheria is developed by **Aman Morghade**
 - GitHub: [Mehmood-Deshmukh](https://github.com/xaman27x)
 
 Feel free to reach out for collaboration, feedback, or just to say hi!
-- 
+
 - 
 
