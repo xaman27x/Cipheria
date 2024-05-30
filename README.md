@@ -1,5 +1,5 @@
 # Cipheria
-Are you trying to search for any information or just trying to solve any problem? Well Cipheria does it all! A Full Stack AI ChatBot built via Flutter and Firebase, harnessing the power of Google's All New Gemini (LLM Model).
+Are you trying to search for any information or just trying to solve a tedious problem? Well Cipheria does it all! A Full Stack AI ChatBot built via Flutter and Firebase, harnessing the power of Google's All New Gemini (LLM Model).
 
 ## Key Features:
 
