@@ -47,7 +47,6 @@ class Auth {
       } else {
         for (var doc in nameSnapshot.docs) {
           var data = doc.data() as Map<String, dynamic>;
-          print(data['FirstName']);
           firstName = data['FirstName'];
           return data['FirstName'];
         }
@@ -67,7 +66,6 @@ class Auth {
       } else {
         for (var doc in lastNameSnapshot.docs) {
           var data = doc.data() as Map<String, dynamic>;
-          print(data['LastName']);
           lastname = data['LastName'];
           return data['LastName'];
         }

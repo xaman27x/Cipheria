@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../models/auth.dart';
 import '../models/chats.dart';
 import '../widgets/messages.dart';
@@ -30,9 +30,10 @@ class _HomePageState extends State<HomePage> {
   String? userName;
   String? userlastname;
   final TextEditingController _controllerInput = TextEditingController();
-  final model = GenerativeModel(
+
+  static final model = GenerativeModel(
     model: 'gemini-pro',
-    apiKey: 'AIzaSyBqbXJb3vr2AAslojxyZF15JCYuUDOoOAs',
+    apiKey: dotenv.env['GENERATIVE_MODEL_API_KEY']!,
   );
 
   @override
