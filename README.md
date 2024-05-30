@@ -4,7 +4,7 @@ Are you trying to search for any information or just trying to solve a tedious p
 ## Key Features:
 
 - **Authentication Service:** A Secure Authentication Layer with hassle free new user creation interface.
-- **Forgot Password?** Simple and Safe Password Reset Options, facilitated by personal Email-ID's.
+- **Forgot Password?:** Simple and Safe Password Reset Options, facilitated by personal Email-ID's.
 - **Seemless Interface:** Smart and Easy to use User Interface for Chat inputs.
 - **Chat Synchronisation:** Chat History has a Backup and is synced with Realtime updates.
 - **Beautiful UI:** Enjoy the stunning and seemless interface for an enhanced browsing experience.
