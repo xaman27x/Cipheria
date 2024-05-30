@@ -55,10 +55,10 @@ Cipheria is developed by **Aman Morghade**
 
 ### Connect with Me
 
-- LinkedIn: [Mehmood Deshmukh](https://www.linkedin.com/in/amanmorghade)
-- GitHub: [Mehmood-Deshmukh](https://github.com/xaman27x)
+- LinkedIn: [Aman Morghade](https://www.linkedin.com/in/amanmorghade)
+- GitHub: [Aman Morghade](https://github.com/xaman27x)
 
-Feel free to reach out for collaboration, feedback, or just to say hi!
+- Feel free to reach out for collaboration, feedback, or just to say hi!
 
 - 
 
