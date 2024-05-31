@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:namer_app/screens/pass_reset.dart';
+import 'package:Cipheria/screens/pass_reset.dart';
 import '../models/auth.dart';
 import '../models/chats.dart';
 import 'package:flutter_animate/flutter_animate.dart';

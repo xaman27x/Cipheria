@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../models/auth.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:Cipheria/screens/pass_reset.dart';
 
 final TextEditingController _controllerPassReset = TextEditingController();
 String errorMessage = '';
