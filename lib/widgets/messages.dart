@@ -37,27 +37,31 @@ class Messages extends StatelessWidget {
                 final dataMap = chatDocs[index]['data'];
                 final List<Widget> textWidgets = [];
                 textWidgets.add(
-                  Text(
-                    "✽ Your Previous Chats:",
-                    style: GoogleFonts.oxanium(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
-                      color: const Color.fromARGB(255, 172, 166, 166),
-                    ),
-                  ),
-                );
-                dataMap.values.forEach((value) {
-                  textWidgets.add(
-                    Text(
-                      "> ${value.toString()}\n",
+                  Center(
+                    child: Text(
+                      "✽ Your Previous Chats:",
                       style: GoogleFonts.oxanium(
                         fontSize: 18,
                         fontWeight: FontWeight.w500,
                         color: const Color.fromARGB(255, 172, 166, 166),
                       ),
                     ),
-                  );
-                });
+                  ),
+                );
+                dataMap.values.forEach(
+                  (value) {
+                    textWidgets.add(
+                      Text(
+                        "> ${value.toString()}\n",
+                        style: GoogleFonts.oxanium(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                          color: const Color.fromARGB(255, 172, 166, 166),
+                        ),
+                      ),
+                    );
+                  },
+                );
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: textWidgets,

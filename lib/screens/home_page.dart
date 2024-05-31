@@ -45,6 +45,12 @@ class _HomePageState extends State<HomePage> {
     _getUserLastName();
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    isSubmitted = false;
+  }
+
   Future<void> _getUserName() async {
     try {
       final emailID = Auth().currentUser?.email ?? '';
@@ -133,11 +139,14 @@ class _HomePageState extends State<HomePage> {
         controller: controller,
         decoration: InputDecoration(
           labelText: title,
-          hintText: 'Enter your $title',
+          hintText: 'Enter your query..',
           filled: true,
           fillColor: Colors.white.withOpacity(0.1),
-          labelStyle: const TextStyle(color: Colors.white),
-          hintStyle: const TextStyle(color: Colors.white70),
+          labelStyle: GoogleFonts.oxanium(
+            color: Colors.white,
+            fontWeight: FontWeight.w500,
+          ),
+          hintStyle: GoogleFonts.oxanium(color: Colors.white70),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -220,11 +229,20 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         actions: [
-          const ElevatedButton(
+          ElevatedButton(
             onPressed: signOut,
+            style: const ButtonStyle(
+              backgroundColor: MaterialStatePropertyAll(
+                Color.fromARGB(255, 78, 72, 72),
+              ),
+            ),
             child: Text(
               "SIGN OUT",
-              selectionColor: Color.fromARGB(255, 59, 54, 54),
+              style: GoogleFonts.oxanium(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+              selectionColor: const Color.fromARGB(255, 59, 54, 54),
             ),
           ),
           const Padding(
@@ -233,17 +251,26 @@ class _HomePageState extends State<HomePage> {
             onPressed: () {
               launchURL("https://www.github.com/xaman27x");
             },
-            child: const Text(
+            style: const ButtonStyle(
+              backgroundColor: MaterialStatePropertyAll(
+                Color.fromARGB(255, 78, 72, 72),
+              ),
+            ),
+            child: Text(
               "GITHUB",
-              selectionColor: Color.fromARGB(255, 59, 54, 54),
+              style: GoogleFonts.oxanium(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+              selectionColor: const Color.fromARGB(255, 59, 54, 54),
             ),
           ),
         ],
       ),
       drawer: Drawer(
-        surfaceTintColor: Colors.white,
-        backgroundColor: const Color.fromARGB(255, 195, 192, 192),
-        shadowColor: Colors.white,
+        surfaceTintColor: const Color.fromARGB(255, 30, 29, 29),
+        backgroundColor: const Color.fromARGB(255, 0, 0, 0),
+        shadowColor: const Color.fromARGB(255, 23, 23, 23),
         child: Scaffold(
           appBar: AppBar(
             title: Text(

@@ -118,7 +118,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
         decoration: InputDecoration(
           labelText: title,
           hintText:
-              title == 'Password' ? 'Enter your password' : 'Enter your $title',
+              title == 'Password' ? 'Enter your Password' : 'Enter your $title',
           filled: true,
           fillColor: const Color.fromARGB(193, 255, 255, 255).withOpacity(0.1),
           labelStyle: const TextStyle(color: Colors.white),
@@ -138,7 +138,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
         ? const SizedBox.shrink()
         : Text(
             '$errorMessage',
-            style: const TextStyle(color: Colors.red),
+            style: const TextStyle(color: Color.fromARGB(255, 255, 17, 0)),
           );
   }
 

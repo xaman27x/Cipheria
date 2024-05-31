@@ -1,11 +1,11 @@
 {
-    "name": "cipheria_v2",
-    "short_name": "cipheria_v2",
+    "name": "Cipheria",
+    "short_name": "Cipheria",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "An AI Chatbot made using Flutter + Firebase",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -71,7 +71,7 @@ class _PassResetPageState extends State<PassResetPage> {
     if (sent) {
       return Center(
         child: Text(
-          "An Email with the link to reset your password has been successfully sent. Kindly check your mail !",
+          "An Email with the link to reset your password has been sent successfully. Kindly check your mail !",
           style: GoogleFonts.orbitron(
             fontWeight: FontWeight.w600,
             fontSize: 18,
@@ -119,15 +119,17 @@ class _PassResetPageState extends State<PassResetPage> {
             fontSize: 40,
           ),
         ),
-        // ignore: prefer_const_constructors
         leading: ElevatedButton(
           style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 0, 0, 0)),
           onPressed: () {
+            setState(() {
+              sentData = false;
+            });
             Navigator.pop(context);
           },
           child: const Padding(
-            padding: EdgeInsets.only(right: 20),
+            padding: EdgeInsets.only(right: 0),
             child: Icon(
               Icons.arrow_back_sharp,
               color: Color.fromARGB(255, 182, 180, 180),

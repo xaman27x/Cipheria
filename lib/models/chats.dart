@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:random_string_generator/random_string_generator.dart';
+import 'auth.dart';
 
 var generator = RandomStringGenerator(
   hasSymbols: false,
@@ -33,5 +34,18 @@ class Chats {
     Chats().userChats.doc(userID).set({
       'data': {generator.generate(): chat.toUpperCase()}
     }, SetOptions(merge: true));
+  }
+
+  Future<void> deleteChats(String userID, String email) async {
+    Map<String, dynamic> dataUpload = {
+      'FirstName': Auth().getName(email),
+      'LastName': Auth().getLastName(email),
+      'UserID': userID,
+      'data': '',
+    };
+    Chats().userChats.doc(userID).set(
+          dataUpload,
+          SetOptions(merge: false),
+        );
   }
 }
