@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:Cipheria/screens/login_page.dart';
+import 'package:cipheria/screens/login_page.dart';
 import 'home_page.dart';
 import '../models/auth.dart';
 
