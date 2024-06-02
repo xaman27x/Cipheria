@@ -1,6 +1,6 @@
 {
-    "name": "Cipheria",
-    "short_name": "Cipheria",
+    "name": "cipheria",
+    "short_name": "cipheria",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
