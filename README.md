@@ -53,7 +53,7 @@ Contributions are what make the open source platforms such an amazing place to b
 Cipheria is developed by **Aman Morghade**
 
 ## Updates
-Working on Artificial Neural Network Models to power the AI Chatbot!
+Working on **Artificial Neural Network Models** to power the AI Chatbot!
 
 ### Connect with Me
 
