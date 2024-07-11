@@ -1,0 +1,94 @@
+[debug] [2024-06-30T09:13:49.298Z] ----------------------------------------------------------------------
+[debug] [2024-06-30T09:13:49.302Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Aman Morghade\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-06-30T09:13:49.302Z] CLI Version:   13.10.2
+[debug] [2024-06-30T09:13:49.302Z] Platform:      win32
+[debug] [2024-06-30T09:13:49.303Z] Node Version:  v20.11.0
+[debug] [2024-06-30T09:13:49.303Z] Time:          Sun Jun 30 2024 14:43:49 GMT+0530 (India Standard Time)
+[debug] [2024-06-30T09:13:49.303Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-06-30T09:13:49.414Z] Object ".remoteconfig" in "firebase.json" is missing required property: {"missingProperty":"template"}
+[debug] [2024-06-30T09:13:49.420Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-30T09:13:49.420Z] > authorizing via signed-in user (aman27072005@gmail.com)
+[debug] [2024-06-30T09:13:49.421Z] Object ".remoteconfig" in "firebase.json" is missing required property: {"missingProperty":"template"}
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Aman Morghade\OneDrive\Desktop\Cipheria
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-06-30T09:14:02.311Z] Using project from CLI flag: cipheria-3a247
+[debug] [2024-06-30T09:14:02.314Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/cipheria-3a247 [none]
+[debug] [2024-06-30T09:14:02.868Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/cipheria-3a247 200
+[debug] [2024-06-30T09:14:02.868Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/cipheria-3a247 {"projectId":"cipheria-3a247","projectNumber":"311847927977","displayName":"cipheria","name":"projects/cipheria-3a247","resources":{"hostingSite":"cipheria-3a247","realtimeDatabaseInstance":"cipheria-3a247-default-rtdb","storageBucket":"cipheria-3a247.appspot.com","locationId":"asia-south1"},"state":"ACTIVE","etag":"1_cafd4325-0a49-41e2-99ec-4d7a6be86361"}
+[info] i  Using project cipheria-3a247 (cipheria) 
+[info] 
+=== Database Setup
+[info] i  database: ensuring required API firebasedatabase.googleapis.com is enabled... 
+[debug] [2024-06-30T09:14:02.891Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/cipheria-3a247/services/firebasedatabase.googleapis.com [none]
+[debug] [2024-06-30T09:14:02.891Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/cipheria-3a247/services/firebasedatabase.googleapis.com x-goog-quota-user=projects/cipheria-3a247
+[debug] [2024-06-30T09:14:04.704Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/cipheria-3a247/services/firebasedatabase.googleapis.com 200
+[debug] [2024-06-30T09:14:04.704Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/cipheria-3a247/services/firebasedatabase.googleapis.com [omitted]
+[info] +  database: required API firebasedatabase.googleapis.com is enabled 
+[info] 
+[debug] [2024-06-30T09:14:04.705Z] >>> [apiv2][query] GET https://firebasedatabase.googleapis.com/v1beta/projects/cipheria-3a247/locations/-/instances/cipheria-3a247-default-rtdb [none]
+[debug] [2024-06-30T09:14:06.591Z] <<< [apiv2][status] GET https://firebasedatabase.googleapis.com/v1beta/projects/cipheria-3a247/locations/-/instances/cipheria-3a247-default-rtdb 200
+[debug] [2024-06-30T09:14:06.592Z] <<< [apiv2][body] GET https://firebasedatabase.googleapis.com/v1beta/projects/cipheria-3a247/locations/-/instances/cipheria-3a247-default-rtdb {"name":"projects/311847927977/locations/asia-southeast1/instances/cipheria-3a247-default-rtdb","project":"projects/311847927977","databaseUrl":"https://cipheria-3a247-default-rtdb.asia-southeast1.firebasedatabase.app","type":"DEFAULT_DATABASE","state":"ACTIVE"}
+[info] 
+[info] Firebase Realtime Database Security Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[info] Skipping overwrite of Realtime Database Security Rules.
+[info] The security rules defined in database.rules.json will be published when you run firebase deploy.
+[info] 
+=== Firestore Setup
+[debug] [2024-06-30T09:14:10.630Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/cipheria-3a247/services/firestore.googleapis.com [none]
+[debug] [2024-06-30T09:14:10.631Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/cipheria-3a247/services/firestore.googleapis.com x-goog-quota-user=projects/cipheria-3a247
+[debug] [2024-06-30T09:14:12.403Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/cipheria-3a247/services/firestore.googleapis.com 200
+[debug] [2024-06-30T09:14:12.403Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/cipheria-3a247/services/firestore.googleapis.com [omitted]
+[debug] [2024-06-30T09:14:12.404Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/cipheria-3a247/databases/(default) [none]
+[debug] [2024-06-30T09:14:12.693Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/cipheria-3a247/databases/(default) 200
+[debug] [2024-06-30T09:14:12.693Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/cipheria-3a247/databases/(default) {"name":"projects/cipheria-3a247/databases/(default)","uid":"402f8414-bbe4-427f-acfd-f25c99a34164","createTime":"2024-04-16T15:32:54.683398Z","updateTime":"2024-04-16T15:32:54.683398Z","locationId":"asia-south1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2024-06-30T08:14:15.511067Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"j","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","etag":"INOj27z+gocDMM6U+7aho4YD"}
+[debug] [2024-06-30T09:14:12.694Z] database_type: FIRESTORE_NATIVE
+[debug] [2024-06-30T09:14:12.694Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-30T09:14:12.694Z] > authorizing via signed-in user (aman27072005@gmail.com)
+[debug] [2024-06-30T09:14:12.694Z] [iam] checking project cipheria-3a247 for permissions ["firebase.projects.get"]
+[debug] [2024-06-30T09:14:12.695Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/cipheria-3a247:testIamPermissions [none]
+[debug] [2024-06-30T09:14:12.695Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/cipheria-3a247:testIamPermissions x-goog-quota-user=projects/cipheria-3a247
+[debug] [2024-06-30T09:14:12.695Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cipheria-3a247:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2024-06-30T09:14:14.276Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/cipheria-3a247:testIamPermissions 200
+[debug] [2024-06-30T09:14:14.276Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cipheria-3a247:testIamPermissions {"permissions":["firebase.projects.get"]}
+[info] 
+[info] Firestore Security Rules allow you to define how and when to allow
+[info] requests. You can keep these rules in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[info] 
+[info] Firestore indexes allow you to perform complex queries while
+[info] maintaining performance that scales with the size of the result
+[info] set. You can keep index definitions in your project directory
+[info] and publish them with firebase deploy.
+[info] 
+[info] 
+=== Functions Setup
+[debug] [2024-06-30T09:15:02.114Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-06-30T09:15:02.114Z] > authorizing via signed-in user (aman27072005@gmail.com)
+[debug] [2024-06-30T09:15:02.114Z] [iam] checking project cipheria-3a247 for permissions ["firebase.projects.get"]
+[debug] [2024-06-30T09:15:02.114Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/cipheria-3a247:testIamPermissions [none]
+[debug] [2024-06-30T09:15:02.114Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/cipheria-3a247:testIamPermissions x-goog-quota-user=projects/cipheria-3a247
+[debug] [2024-06-30T09:15:02.115Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/cipheria-3a247:testIamPermissions {"permissions":["firebase.projects.get"]}

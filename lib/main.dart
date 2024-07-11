@@ -1,26 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/tree_page.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
-    return FirebaseOptions(
-      apiKey: dotenv.env['FIREBASE_API_KEY']!,
-      authDomain: dotenv.env['FIREBASE_AUTH_DOMAIN']!,
-      databaseURL: dotenv.env['FIREBASE_DATABASE_URL']!,
-      projectId: dotenv.env['FIREBASE_PROJECT_ID']!,
-      storageBucket: dotenv.env['FIREBASE_STORAGE_BUCKET']!,
-      messagingSenderId: dotenv.env['FIREBASE_MESSAGING_SENDER_ID']!,
-      appId: dotenv.env['FIREBASE_APP_ID']!,
-      measurementId: dotenv.env['FIREBASE_MEASUREMENT_ID']!,
+    return const FirebaseOptions(
+      apiKey: "AIzaSyBBS1Ca6HVg_HiZDNW2eKWXrg7hZQMlMMY",
+      authDomain: "cipheria-3a247.firebaseapp.com",
+      databaseURL:
+          "https://cipheria-3a247-default-rtdb.asia-southeast1.firebasedatabase.app",
+      projectId: "cipheria-3a247",
+      storageBucket: "cipheria-3a247.appspot.com",
+      messagingSenderId: "311847927977",
+      appId: "1:311847927977:web:0f1e5ac8e3197ed858e9b8",
+      measurementId: "G-32N7CS10L4",
     );
   }
 }
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: ".env");
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

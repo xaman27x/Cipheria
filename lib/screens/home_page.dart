@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../models/auth.dart';
 import '../models/chats.dart';
 import '../widgets/messages.dart';
@@ -31,9 +30,9 @@ class _HomePageState extends State<HomePage> {
   String? userlastname;
   final TextEditingController _controllerInput = TextEditingController();
 
-  static final model = GenerativeModel(
-    model: 'gemini-pro',
-    apiKey: dotenv.env['GENERATIVE_MODEL_API_KEY']!,
+  final model = GenerativeModel(
+    model: 'gemini-1.5-flash-latest',
+    apiKey: 'AIzaSyA-e4kTT7QnWekWT8TsVhlUk2AO-cO0X1Y',
   );
 
   @override
@@ -116,10 +115,12 @@ class _HomePageState extends State<HomePage> {
         fetchedData = generatedText;
       });
     } catch (e) {
-      setState(() {
-        isLoading = false;
-        fetchedData = 'Error: ${e.toString()}';
-      });
+      setState(
+        () {
+          isLoading = false;
+          fetchedData = 'Error: ${e.toString()}';
+        },
+      );
     }
   }
 
