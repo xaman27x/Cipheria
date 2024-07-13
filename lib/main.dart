@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/tree_page.dart';
+import 'globals/';
 
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     return const FirebaseOptions(
-      apiKey: "AIzaSyBBS1Ca6HVg_HiZDNW2eKWXrg7hZQMlMMY",
-      authDomain: "cipheria-3a247.firebaseapp.com",
+      apiKey: FIREBASE_API_KEY,
+      authDomain: FIREBASE_AUTH_DOMAIN,
       databaseURL:
-          "https://cipheria-3a247-default-rtdb.asia-southeast1.firebasedatabase.app",
-      projectId: "cipheria-3a247",
-      storageBucket: "cipheria-3a247.appspot.com",
-      messagingSenderId: "311847927977",
-      appId: "1:311847927977:web:0f1e5ac8e3197ed858e9b8",
-      measurementId: "G-32N7CS10L4",
+          FIREBASE_DATA_URL,
+      projectId: FIREBASE_PROJECT_ID,
+      storageBucket: FIREBASE_STORAGE_BUCKET,
+      messagingSenderId: FIREBASE_MESSAGING_ID,
+      appId: FIREBASE_APP_ID,
+      measurementId: FIREBASE_MEASUREMENT_ID,
     );
   }
 }
